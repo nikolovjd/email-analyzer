@@ -3,7 +3,7 @@ import container from './ioc_container';
 import * as bodyParser from 'body-parser';
 
 // Makes config global
-import './loadConfig';
+import './configLoader';
 
 import { interfaces, InversifyExpressServer } from 'inversify-express-utils';
 
