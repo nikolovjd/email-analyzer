@@ -8,7 +8,7 @@ interface IImapConfig {
 }
 
 @Entity()
-export class User {
+export class Mailbox {
   @PrimaryGeneratedColumn()
   public id: number;
 

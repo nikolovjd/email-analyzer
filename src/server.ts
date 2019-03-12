@@ -15,5 +15,5 @@ server.setConfig(app => {
 
 const app = server.build();
 app.listen(3000, () => {
-  console.log('CONFIG IS', config);
+  console.log('Server listening to port 3000');
 });
