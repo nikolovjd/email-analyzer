@@ -1,3 +1,20 @@
 {
-  
+  "db": {
+    "type": "postgres",
+    "host": "db",
+    "port": 5432,
+    "database": "emailanalyzer",
+    "username": "dev",
+    "password": "dev",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+      "/app/dist/entities/*.js"
+    ]
+  },
+  "encryption": {
+    "enabled": true,
+    "password": "KaPdSgVkYp3s6v9y",
+    "algorithm": "AES-128-CBC"
+  }
 }
