@@ -4,7 +4,7 @@
   "description": "Email Analysis Service",
   "main": "dist/server.js",
   "scripts": {
-    "build": "node_modules/.bin/tsc -w",
+    "build": "node_modules/.bin/tsc",
     "watch": "node_modules/.bin/tsc -w",
     "start": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
