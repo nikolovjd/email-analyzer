@@ -23,24 +23,24 @@ const test2 = {
 
 const test3 = {
   type: 'sender',
-  data: ['reethok@gmail.com'],
+  data: ['nikolov.jd@gmail.com'],
   check: {
     type: 'all'
   }
 };
 
 const t1 = {
-  tag: 'exact',
+  tag: 'exact any (chloroplast)',
   rules: [test1]
 };
 
 const t2 = {
-  tag: 'keyword',
+  tag: 'keyword any (állás, munka, lehetőség, job)',
   rules: [test2]
 };
 
 const t3 = {
-  tag: 'sender',
+  tag: 'sender is nikolov.jd@gmail.com',
   rules: [test3]
 };
 
