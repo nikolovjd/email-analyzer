@@ -16,5 +16,14 @@
     "enabled": true,
     "password": "KaPdSgVkYp3s6v9y",
     "algorithm": "AES-128-CBC"
+  },
+  "auth": {
+    "hashRounds": 8
+  },
+  "cron": {
+    "analyze": "*/20 * * * * *"
+  },
+  "api": {
+    "port": 3000
   }
 }

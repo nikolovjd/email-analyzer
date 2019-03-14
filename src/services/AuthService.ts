@@ -1,21 +1,41 @@
 import { inject, injectable } from 'inversify';
-import DatabaseService from './DatabaseService';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import { IUser } from '../types';
+import UserService from './UserService';
 
 @injectable()
 class AuthService {
-  constructor(@inject('DatabaseService') private db: DatabaseService) {}
+  constructor(@inject('UserService') private userService: UserService) {}
 
-  public async registerUser({ username, password }) {
-    // TODO
+  public async hashPassword(password: string): Promise<string> {
+    const salt = await bcrypt.genSalt(config.auth.hashRounds);
+    return bcrypt.hash(password, salt);
   }
 
-  public async getUser(token: any) {
-    return {
-      id: 1,
-      firstName: 'asdf',
-      lastName: 'sdadada',
-      email: 'hdajhdaj@hadjas.com'
-    };
+  public async verifyPassword(
+    password: string,
+    hash: string
+  ): Promise<boolean> {
+    return bcrypt.compare(password, hash);
+  }
+
+  public createAccessToken(user: IUser) {
+    // Remove password from token
+    return jwt.sign({ id: user.id }, 'secret');
+  }
+
+  public validateAccessToken(token: string) {
+    return jwt.verify(token, 'secret');
+  }
+
+  public async getUserFromToken(token: string) {
+    try {
+      const { id } = this.validateAccessToken(token);
+      return this.userService.getById(id);
+    } catch (err) {
+      return null;
+    }
   }
 }
 
